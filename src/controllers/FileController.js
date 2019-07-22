@@ -13,6 +13,7 @@ class FileController {
     await pet.save();
 
     req.io.sockets.in(box._id).emit("file", file);
+    console.log(file);
     return res.json(file);
   }
 }

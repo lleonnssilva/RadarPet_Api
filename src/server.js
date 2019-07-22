@@ -18,7 +18,7 @@ io.on("connection", socket => {
 });
 
 
-mongoose.connect(process.env.StrConexaoWeb, { useNewUrlParser: true });
+mongoose.connect(process.env.StrConexaoLocal, { useNewUrlParser: true });
 app.use((req, res, next) => {
   req.io = io;
   return next();

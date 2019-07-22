@@ -1,9 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const File = new mongoose.Schema(
   {
     title: { type: String, require: true },
-    photo: { type: String, require: true },
     path: { type: String, require: true }
   },
   {
@@ -14,9 +13,9 @@ const File = new mongoose.Schema(
 );
 
 // cria um campo virtual - ele não existe no banco
-File.virtual('url').get(function() {
-  const url = process.env.URL || 'http://localhost:3333';
+File.virtual("url").get(function() {
+  const url = process.env.URL || "http://localhost:3333";
   return `${url}/files/${encodeURIComponent(this.path)}`;
 });
 
-module.exports = mongoose.model('File', File);
+module.exports = mongoose.model("File", File);
