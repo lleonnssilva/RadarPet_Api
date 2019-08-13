@@ -17,7 +17,6 @@ io.on("connection", socket => {
   });
 });
 
-
 mongoose.connect(process.env.StrConexaoLocal, { useNewUrlParser: true });
 app.use((req, res, next) => {
   req.io = io;
@@ -31,4 +30,4 @@ app.use(require("./routers"));
 //app.use("/files", express.static(path.resolve(__dirname, "..", "tmp")));
 
 //server.listen(process.env.PORT || 3333);
-server.listen(process.env.PORT || 3333, console.log("Conectado"));
+server.listen(process.env.PORT || 3333, console.log("Online"));

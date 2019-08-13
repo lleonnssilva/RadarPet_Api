@@ -2,7 +2,7 @@ const Pet = require("../models/Pet");
 
 class PetController {
   async index(req, res) {
-    const pets = await Pet.find({});
+    const pets = await Pet.find({}).populate({ path: "files" });
     return res.json(pets);
   }
   async store(req, res) {
